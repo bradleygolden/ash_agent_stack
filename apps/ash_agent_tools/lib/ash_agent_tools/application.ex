@@ -1,0 +1,16 @@
+defmodule AshAgentTools.Application do
+  @moduledoc false
+
+  use Application
+
+  @impl true
+  def start(_type, _args) do
+    children = [
+      # Start the ToolRegistry
+      AshAgentTools.ToolRegistry
+    ]
+
+    opts = [strategy: :one_for_one, name: AshAgentTools.Supervisor]
+    Supervisor.start_link(children, opts)
+  end
+end
