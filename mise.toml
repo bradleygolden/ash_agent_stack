@@ -1,0 +1,12 @@
+[tools]
+elixir = "1.18.4"
+erlang = "28.1"
+
+[tasks.precommit]
+description = "Run deps + precommit across all apps"
+run = [
+  "MIX_ENV=test mix deps.get",
+  "cd apps/ash_baml && MIX_ENV=test mix precommit",
+  "cd apps/ash_agent && MIX_ENV=test mix precommit",
+  "cd apps/ash_agent_ui && MIX_ENV=test mix precommit"
+]
