@@ -1,4 +1,4 @@
-defmodule AshAgentTools.DSL do
+defmodule AshAgent.Tools.DSL do
   @moduledoc """
   DSL for defining tools available to agents.
 
@@ -36,7 +36,7 @@ defmodule AshAgentTools.DSL do
       end
       """
     ],
-    target: AshAgentTools.DSL.ToolDefinition,
+    target: AshAgent.Tools.DSL.ToolDefinition,
     args: [:name],
     schema: [
       name: [

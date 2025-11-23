@@ -1,4 +1,4 @@
-defmodule AshAgentTools.ToolRegistry do
+defmodule AshAgent.Tools.ToolRegistry do
   @moduledoc """
   Registry for tools that can be shared across agents in a domain.
 
@@ -9,10 +9,10 @@ defmodule AshAgentTools.ToolRegistry do
   ## Example
 
       # Register a tool for a domain
-      AshAgentTools.ToolRegistry.register_tool(
+      AshAgent.Tools.ToolRegistry.register_tool(
         MyApp.CustomerDomain,
         :get_customer,
-        AshAgentTools.Tools.AshAction.new(
+        AshAgent.Tools.Tools.AshAction.new(
           name: :get_customer,
           description: "Get customer by ID",
           resource: MyApp.Customers.Customer,
@@ -21,10 +21,10 @@ defmodule AshAgentTools.ToolRegistry do
       )
 
       # Get a registered tool
-      tool = AshAgentTools.ToolRegistry.get_tool(MyApp.CustomerDomain, :get_customer)
+      tool = AshAgent.Tools.ToolRegistry.get_tool(MyApp.CustomerDomain, :get_customer)
 
       # List all tools for a domain
-      tools = AshAgentTools.ToolRegistry.list_tools(MyApp.CustomerDomain)
+      tools = AshAgent.Tools.ToolRegistry.list_tools(MyApp.CustomerDomain)
   """
 
   use Agent
@@ -47,7 +47,7 @@ defmodule AshAgentTools.ToolRegistry do
 
   ## Examples
 
-      iex> AshAgentTools.ToolRegistry.register_tool(MyDomain, :my_tool, tool)
+      iex> AshAgent.Tools.ToolRegistry.register_tool(MyDomain, :my_tool, tool)
       :ok
   """
   def register_tool(domain, tool_name, tool_impl) do
@@ -70,10 +70,10 @@ defmodule AshAgentTools.ToolRegistry do
 
   ## Examples
 
-      iex> AshAgentTools.ToolRegistry.get_tool(MyDomain, :my_tool)
-      %AshAgentTools.Tools.Function{...}
+      iex> AshAgent.Tools.ToolRegistry.get_tool(MyDomain, :my_tool)
+      %AshAgent.Tools.Tools.Function{...}
 
-      iex> AshAgentTools.ToolRegistry.get_tool(MyDomain, :nonexistent)
+      iex> AshAgent.Tools.ToolRegistry.get_tool(MyDomain, :nonexistent)
       nil
   """
   def get_tool(domain, tool_name) do
@@ -93,8 +93,8 @@ defmodule AshAgentTools.ToolRegistry do
 
   ## Examples
 
-      iex> AshAgentTools.ToolRegistry.list_tools(MyDomain)
-      %{my_tool: %AshAgentTools.Tools.Function{...}}
+      iex> AshAgent.Tools.ToolRegistry.list_tools(MyDomain)
+      %{my_tool: %AshAgent.Tools.Tools.Function{...}}
   """
   def list_tools(domain) do
     Agent.get(__MODULE__, fn registry ->
@@ -114,7 +114,7 @@ defmodule AshAgentTools.ToolRegistry do
 
   ## Examples
 
-      iex> AshAgentTools.ToolRegistry.unregister_tool(MyDomain, :my_tool)
+      iex> AshAgent.Tools.ToolRegistry.unregister_tool(MyDomain, :my_tool)
       :ok
   """
   def unregister_tool(domain, tool_name) do
@@ -141,7 +141,7 @@ defmodule AshAgentTools.ToolRegistry do
 
   ## Examples
 
-      iex> AshAgentTools.ToolRegistry.clear_domain(MyDomain)
+      iex> AshAgent.Tools.ToolRegistry.clear_domain(MyDomain)
       :ok
   """
   def clear_domain(domain) do
@@ -157,7 +157,7 @@ defmodule AshAgentTools.ToolRegistry do
 
   ## Examples
 
-      iex> AshAgentTools.ToolRegistry.clear_all()
+      iex> AshAgent.Tools.ToolRegistry.clear_all()
       :ok
   """
   def clear_all do

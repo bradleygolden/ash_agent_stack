@@ -1,4 +1,4 @@
-defmodule AshAgentTools do
+defmodule AshAgent.Tools do
   @moduledoc """
   Tool calling functionality for AshAgent.
 
@@ -58,7 +58,7 @@ defmodule AshAgentTools do
 
   ## Architecture
 
-  AshAgentTools is split from the core AshAgent library to:
+  AshAgent.Tools is split from the core AshAgent library to:
   - Keep the core lightweight
   - Allow optional tool functionality
   - Enable separate versioning and evolution

@@ -1,4 +1,4 @@
-defmodule AshAgentTools.ResultProcessors.Summarize do
+defmodule AshAgent.Tools.ResultProcessors.Summarize do
   @moduledoc """
   Summarizes tool results using rule-based heuristics.
 
@@ -16,7 +16,7 @@ defmodule AshAgentTools.ResultProcessors.Summarize do
 
   ## Examples
 
-      iex> alias AshAgentTools.ResultProcessors.Summarize
+      iex> alias AshAgent.Tools.ResultProcessors.Summarize
       iex> results = [{"query", {:ok, Enum.to_list(1..100)}}]
       iex> summarized = Summarize.process(results, sample_size: 3)
       iex> [{"query", {:ok, summary}}] = summarized
@@ -28,7 +28,7 @@ defmodule AshAgentTools.ResultProcessors.Summarize do
       3
   """
 
-  @behaviour AshAgentTools.ResultProcessor
+  @behaviour AshAgent.Tools.ResultProcessor
 
   @default_sample_size 3
   @default_max_summary_size 500

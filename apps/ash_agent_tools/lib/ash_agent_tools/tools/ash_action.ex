@@ -1,11 +1,11 @@
-defmodule AshAgentTools.Tools.AshAction do
+defmodule AshAgent.Tools.Tools.AshAction do
   @moduledoc """
   Tool implementation for executing Ash actions.
 
   Wraps Ash resource actions and makes them available as agent tools.
   """
 
-  @behaviour AshAgentTools.Tool
+  @behaviour AshAgent.Tools.Tool
 
   alias Ash.Resource.Info
 
@@ -41,7 +41,7 @@ defmodule AshAgentTools.Tools.AshAction do
   Uses the tool's parameter definitions to build complete schema.
   """
   def to_schema(%__MODULE__{} = tool) do
-    AshAgentTools.Tool.build_tool_json_schema(tool.name, tool.description, tool.parameters)
+    AshAgent.Tools.Tool.build_tool_json_schema(tool.name, tool.description, tool.parameters)
   end
 
   @impl true

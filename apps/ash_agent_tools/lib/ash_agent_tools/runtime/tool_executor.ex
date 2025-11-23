@@ -1,11 +1,11 @@
-defmodule AshAgentTools.Runtime.ToolExecutor do
+defmodule AshAgent.Tools.Runtime.ToolExecutor do
   @moduledoc """
   Executes tools requested by LLM agents.
 
   Handles tool execution, validation, error handling, and result formatting.
   """
 
-  alias AshAgentTools.{Tools.AshAction, Tools.Function}
+  alias AshAgent.Tools.{Tools.AshAction, Tools.Function}
 
   @doc """
   Executes a list of tool calls and returns results.

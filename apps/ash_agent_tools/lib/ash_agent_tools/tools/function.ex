@@ -1,4 +1,4 @@
-defmodule AshAgentTools.Tools.Function do
+defmodule AshAgent.Tools.Tools.Function do
   @moduledoc """
   Tool implementation for executing Elixir functions.
 
@@ -8,7 +8,7 @@ defmodule AshAgentTools.Tools.Function do
   - Module function reference: &Module.function/arity
   """
 
-  @behaviour AshAgentTools.Tool
+  @behaviour AshAgent.Tools.Tool
 
   defstruct [:name, :description, :function, :parameters]
 
@@ -40,7 +40,7 @@ defmodule AshAgentTools.Tools.Function do
   Uses the tool's parameter definitions to build complete schema.
   """
   def to_schema(%__MODULE__{} = tool) do
-    AshAgentTools.Tool.build_tool_json_schema(tool.name, tool.description, tool.parameters)
+    AshAgent.Tools.Tool.build_tool_json_schema(tool.name, tool.description, tool.parameters)
   end
 
   @impl true

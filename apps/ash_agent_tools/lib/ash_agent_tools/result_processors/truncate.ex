@@ -1,4 +1,4 @@
-defmodule AshAgentTools.ResultProcessors.Truncate do
+defmodule AshAgent.Tools.ResultProcessors.Truncate do
   @moduledoc """
   Truncates tool results that exceed a specified size threshold.
 
@@ -18,26 +18,26 @@ defmodule AshAgentTools.ResultProcessors.Truncate do
 
       # Truncate a large string
       iex> results = [{"tool", {:ok, String.duplicate("x", 2000)}}]
-      iex> truncated = AshAgentTools.ResultProcessors.Truncate.process(results, max_size: 100)
+      iex> truncated = AshAgent.Tools.ResultProcessors.Truncate.process(results, max_size: 100)
       iex> [{"tool", {:ok, data}}] = truncated
       iex> String.length(data) <= 120
       true
 
       # Small results pass through unchanged
       iex> results = [{"tool", {:ok, "small"}}]
-      iex> [{"tool", {:ok, "small"}}] = AshAgentTools.ResultProcessors.Truncate.process(results, max_size: 100)
+      iex> [{"tool", {:ok, "small"}}] = AshAgent.Tools.ResultProcessors.Truncate.process(results, max_size: 100)
       [{"tool", {:ok, "small"}}]
 
       # Error results are preserved
       iex> results = [{"tool", {:error, "oops"}}]
-      iex> [{"tool", {:error, "oops"}}] = AshAgentTools.ResultProcessors.Truncate.process(results)
+      iex> [{"tool", {:error, "oops"}}] = AshAgent.Tools.ResultProcessors.Truncate.process(results)
       [{"tool", {:error, "oops"}}]
 
   """
 
-  @behaviour AshAgentTools.ResultProcessor
+  @behaviour AshAgent.Tools.ResultProcessor
 
-  alias AshAgentTools.ResultProcessors
+  alias AshAgent.Tools.ResultProcessors
 
   @default_max_size 1_000
   @default_marker "... [truncated]"

@@ -1,4 +1,4 @@
-defmodule AshAgentTools.Tool do
+defmodule AshAgent.Tools.Tool do
   @moduledoc """
   Behavior for AshAgent tools that can be called by LLM agents.
 

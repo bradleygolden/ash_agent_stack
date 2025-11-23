@@ -148,10 +148,10 @@ end
 
 ## Result Processors
 
-AshAgentTools includes result processors for handling large tool outputs:
+AshAgent.Tools includes result processors for handling large tool outputs:
 
 ```elixir
-alias AshAgentTools.ResultProcessors.{Truncate, Sample, Summarize}
+alias AshAgent.Tools.ResultProcessors.{Truncate, Sample, Summarize}
 
 # Truncate large results
 Truncate.process(results, max_size: 1000)
@@ -165,7 +165,7 @@ Summarize.process(results, sample_size: 3)
 
 ## Architecture
 
-AshAgentTools is split from the core AshAgent library to:
+AshAgent.Tools is split from the core AshAgent library to:
 - Keep the core lightweight for simple agents
 - Allow optional tool functionality
 - Enable separate versioning and evolution

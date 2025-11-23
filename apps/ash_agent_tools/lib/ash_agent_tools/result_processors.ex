@@ -1,4 +1,4 @@
-defmodule AshAgentTools.ResultProcessor do
+defmodule AshAgent.Tools.ResultProcessor do
   @moduledoc """
   Behavior for result processors that transform tool results.
 
@@ -17,7 +17,7 @@ defmodule AshAgentTools.ResultProcessor do
   @callback process([result_entry], options) :: [result_entry]
 end
 
-defmodule AshAgentTools.ResultProcessors do
+defmodule AshAgent.Tools.ResultProcessors do
   @moduledoc """
   Shared utilities for result processors.
   """
@@ -27,11 +27,11 @@ defmodule AshAgentTools.ResultProcessors do
 
   ## Examples
 
-      iex> AshAgentTools.ResultProcessors.large?("small", 1000)
+      iex> AshAgent.Tools.ResultProcessors.large?("small", 1000)
       false
 
       iex> large = String.duplicate("x", 2000)
-      iex> AshAgentTools.ResultProcessors.large?(large, 1000)
+      iex> AshAgent.Tools.ResultProcessors.large?(large, 1000)
       true
   """
   def large?(data, threshold) do

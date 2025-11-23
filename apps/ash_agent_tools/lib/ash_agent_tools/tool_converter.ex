@@ -1,11 +1,11 @@
-defmodule AshAgentTools.ToolConverter do
+defmodule AshAgent.Tools.ToolConverter do
   @moduledoc """
   Converts AshAgent tool definitions to provider-specific formats.
 
   Handles conversion to JSON Schema (for ReqLLM) and other provider formats.
   """
 
-  alias AshAgentTools.Tool
+  alias AshAgent.Tools.Tool
 
   @doc """
   Converts a list of tool definitions to JSON Schema format for ReqLLM.
