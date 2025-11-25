@@ -1,12 +1,12 @@
 [submodule "apps/ash_agent"]
 	path = apps/ash_agent
 	url = https://github.com/bradleygolden/ash_agent.git
-[submodule "apps/ash_agent_ui"]
-	path = apps/ash_agent_ui
-	url = https://github.com/bradleygolden/ash_agent_ui.git
 [submodule "apps/ash_baml"]
 	path = apps/ash_baml
 	url = https://github.com/bradleygolden/ash_baml.git
 [submodule "apps/ash_agent_tools"]
 	path = apps/ash_agent_tools
 	url = https://github.com/bradleygolden/ash_agent_tools.git
+[submodule "apps/ash_agent_studio"]
+	path = apps/ash_agent_studio
+	url = https://github.com/bradleygolden/ash_agent_studio.git

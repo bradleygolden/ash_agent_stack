@@ -8,5 +8,5 @@ run = [
   "cd apps/ash_baml && MIX_ENV=test mix precommit",
   "cd apps/ash_agent && MIX_ENV=test mix precommit",
   "cd apps/ash_agent_tools && MIX_ENV=test mix precommit",
-  "cd apps/ash_agent_ui && MIX_ENV=test mix precommit"
+  "cd apps/ash_agent_studio && MIX_ENV=test mix precommit"
 ]
