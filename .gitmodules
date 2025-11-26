@@ -10,3 +10,6 @@
 [submodule "apps/ash_agent_studio"]
 	path = apps/ash_agent_studio
 	url = https://github.com/bradleygolden/ash_agent_studio.git
+[submodule "apps/ash_agent_marketplace"]
+	path = apps/ash_agent_marketplace
+	url = https://github.com/bradleygolden/ash_agent_marketplace.git
