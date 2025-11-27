@@ -12,6 +12,39 @@ The AshAgent ecosystem for building production AI agents in Elixir.
 | [ash_agent_marketplace](https://github.com/bradleygolden/ash_agent_marketplace) | Marketplace for sharing and discovering agents | In Development |
 | [ash_agent_studio](https://github.com/bradleygolden/ash_agent_studio) | Visual studio for building and testing agents | In Development |
 
+## Capabilities
+
+### Core
+
+| Capability | ReqLLM | BAML |
+|------------|--------|------|
+| LLM Calling | Yes | Yes |
+| Structured Outputs | Yes | Yes |
+
+### Streaming
+
+| Capability | ReqLLM | BAML |
+|------------|--------|------|
+| Text | Yes | Yes |
+| Structured | No | Yes |
+| With Thinking | Yes | No |
+| With Thinking + Structured | No | No |
+
+### Extended Thinking (experimental)
+
+| Capability | ReqLLM | BAML |
+|------------|--------|------|
+| Text Output | Yes | Yes |
+| Structured Output | No | Yes |
+
+### In Development
+
+| Capability | ReqLLM | BAML |
+|------------|--------|------|
+| Tool Calling | Yes | Yes |
+| Multi-turn Conversations | Yes | Yes |
+| Token Management | Yes | Yes |
+
 ## Getting Started
 
 Start with [ash_agent](https://github.com/bradleygolden/ash_agent) - the core package that provides the declarative DSL for defining AI agents as Ash resources.
