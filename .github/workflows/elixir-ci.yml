@@ -147,7 +147,7 @@ jobs:
       run: mix dialyzer --plt
 
     - name: Run Dialyzer
-      run: mix dialyzer --format github
+      run: mix dialyzer
 
   docs:
     name: Documentation
