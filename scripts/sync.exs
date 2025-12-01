@@ -8,7 +8,9 @@ defmodule StackSync do
     "ci" => {".github/workflows/ci.yml", "ci.yml.eex"},
     "credo" => {".credo.exs", "credo.exs.eex"},
     "agents" => {"AGENTS.md", "AGENTS.md.eex"},
-    "claude" => {"CLAUDE.md", "CLAUDE.md.eex"}
+    "claude" => {"CLAUDE.md", "CLAUDE.md.eex"},
+    "hooks-settings" => {".claude/settings.json", ".claude/settings.json"},
+    "hooks-precommit" => {".claude/hooks/precommit.sh", ".claude/hooks/precommit.sh"}
   }
 
   def run(args) do
@@ -91,9 +93,13 @@ defmodule StackSync do
   end
 
   defp render_template(template_path, assigns) do
-    template_path
-    |> File.read!()
-    |> EEx.eval_string(assigns: assigns)
+    content = File.read!(template_path)
+
+    if String.ends_with?(template_path, ".eex") do
+      EEx.eval_string(content, assigns: assigns)
+    else
+      content
+    end
   end
 
   defp show_diff(app, file_type, path, new_content) do
@@ -121,10 +127,18 @@ defmodule StackSync do
   defp create_file(path, content) do
     path |> Path.dirname() |> File.mkdir_p!()
     File.write!(path, content)
+    maybe_make_executable(path)
   end
 
   defp update_file(path, content) do
     File.write!(path, content)
+    maybe_make_executable(path)
+  end
+
+  defp maybe_make_executable(path) do
+    if String.ends_with?(path, ".sh") do
+      System.cmd("chmod", ["+x", path])
+    end
   end
 end
 
