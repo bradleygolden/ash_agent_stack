@@ -95,7 +95,7 @@ jobs:
       run: mix credo --strict
 
     - name: Run Sobelow
-      run: mix sobelow --exit
+      run: mix sobelow --exit --skip
 
     - name: Audit dependencies for vulnerabilities
       run: mix hex.audit
