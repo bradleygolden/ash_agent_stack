@@ -100,6 +100,9 @@ jobs:
     - name: Audit dependencies for vulnerabilities
       run: mix deps.audit
 
+    - name: Audit Hex packages for retired versions
+      run: mix hex.audit
+
   dialyzer:
     name: Dialyzer
     runs-on: ubuntu-latest
