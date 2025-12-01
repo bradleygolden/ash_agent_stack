@@ -12,7 +12,7 @@ env:
 
 jobs:
   test:
-    name: Test (Elixir ${{ matrix.elixir }} / OTP ${{ matrix.otp }})
+    name: Test (${{ matrix.elixir }} - OTP ${{ matrix.otp }})
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -150,7 +150,7 @@ jobs:
       run: mix dialyzer
 
   docs:
-    name: Documentation
+    name: Docs
     runs-on: ubuntu-latest
 
     steps:
