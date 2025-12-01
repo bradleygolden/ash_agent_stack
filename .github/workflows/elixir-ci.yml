@@ -98,7 +98,7 @@ jobs:
       run: mix sobelow --exit --skip
 
     - name: Audit dependencies for vulnerabilities
-      run: mix hex.audit
+      run: mix deps.audit
 
   dialyzer:
     name: Dialyzer
