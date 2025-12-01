@@ -9,6 +9,7 @@ permissions:
 env:
   ELIXIR_VERSION: '1.19'
   OTP_VERSION: '28'
+  SKIP_LOCAL_DEPS: 'true'
 
 jobs:
   test:
