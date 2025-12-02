@@ -9,8 +9,8 @@ defmodule StackSync do
     "credo" => {".credo.exs", "credo.exs.eex"},
     "agents" => {"AGENTS.md", "AGENTS.md.eex"},
     "claude" => {"CLAUDE.md", "CLAUDE.md.eex"},
-    "hooks-settings" => {".claude/settings.json", ".claude/settings.json"},
-    "hooks-precommit" => {".claude/hooks/precommit.sh", ".claude/hooks/precommit.sh"}
+    "test-helper" => {"test/test_helper.exs", "test/test_helper.exs.eex"},
+    "integration-case" => {"test/support/integration_case.ex", "test/support/integration_case.ex.eex"}
   }
 
   def run(args) do
