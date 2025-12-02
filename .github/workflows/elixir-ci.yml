@@ -9,6 +9,7 @@ permissions:
 env:
   ELIXIR_VERSION: '1.19'
   OTP_VERSION: '28'
+  MIX_ENV: test
 
 jobs:
   test:
@@ -36,9 +37,9 @@ jobs:
         path: |
           deps
           _build
-        key: ${{ runner.os }}-mix-${{ matrix.otp }}-${{ matrix.elixir }}-${{ hashFiles('**/mix.lock') }}
+        key: ${{ runner.os }}-mix-test-${{ matrix.otp }}-${{ matrix.elixir }}-${{ hashFiles('**/mix.lock') }}
         restore-keys: |
-          ${{ runner.os }}-mix-${{ matrix.otp }}-${{ matrix.elixir }}-
+          ${{ runner.os }}-mix-test-${{ matrix.otp }}-${{ matrix.elixir }}-
 
     - name: Install dependencies
       run: mix deps.get
@@ -75,9 +76,9 @@ jobs:
         path: |
           deps
           _build
-        key: ${{ runner.os }}-mix-quality-${{ env.OTP_VERSION }}-${{ env.ELIXIR_VERSION }}-${{ hashFiles('**/mix.lock') }}
+        key: ${{ runner.os }}-mix-test-quality-${{ env.OTP_VERSION }}-${{ env.ELIXIR_VERSION }}-${{ hashFiles('**/mix.lock') }}
         restore-keys: |
-          ${{ runner.os }}-mix-quality-${{ env.OTP_VERSION }}-${{ env.ELIXIR_VERSION }}-
+          ${{ runner.os }}-mix-test-quality-${{ env.OTP_VERSION }}-${{ env.ELIXIR_VERSION }}-
 
     - name: Install dependencies
       run: mix deps.get
@@ -123,18 +124,18 @@ jobs:
         path: |
           deps
           _build
-        key: ${{ runner.os }}-mix-dialyzer-${{ env.OTP_VERSION }}-${{ env.ELIXIR_VERSION }}-${{ hashFiles('**/mix.lock') }}
+        key: ${{ runner.os }}-mix-test-dialyzer-${{ env.OTP_VERSION }}-${{ env.ELIXIR_VERSION }}-${{ hashFiles('**/mix.lock') }}
         restore-keys: |
-          ${{ runner.os }}-mix-dialyzer-${{ env.OTP_VERSION }}-${{ env.ELIXIR_VERSION }}-
+          ${{ runner.os }}-mix-test-dialyzer-${{ env.OTP_VERSION }}-${{ env.ELIXIR_VERSION }}-
 
     - name: Restore PLT cache
       uses: actions/cache@v4
       id: plt-cache
       with:
         path: priv/plts
-        key: ${{ runner.os }}-plts-${{ env.OTP_VERSION }}-${{ env.ELIXIR_VERSION }}-${{ hashFiles('**/mix.lock') }}
+        key: ${{ runner.os }}-plts-test-${{ env.OTP_VERSION }}-${{ env.ELIXIR_VERSION }}-${{ hashFiles('**/mix.lock') }}
         restore-keys: |
-          ${{ runner.os }}-plts-${{ env.OTP_VERSION }}-${{ env.ELIXIR_VERSION }}-
+          ${{ runner.os }}-plts-test-${{ env.OTP_VERSION }}-${{ env.ELIXIR_VERSION }}-
 
     - name: Install dependencies
       run: mix deps.get
@@ -172,9 +173,9 @@ jobs:
         path: |
           deps
           _build
-        key: ${{ runner.os }}-mix-docs-${{ env.OTP_VERSION }}-${{ env.ELIXIR_VERSION }}-${{ hashFiles('**/mix.lock') }}
+        key: ${{ runner.os }}-mix-test-docs-${{ env.OTP_VERSION }}-${{ env.ELIXIR_VERSION }}-${{ hashFiles('**/mix.lock') }}
         restore-keys: |
-          ${{ runner.os }}-mix-docs-${{ env.OTP_VERSION }}-${{ env.ELIXIR_VERSION }}-
+          ${{ runner.os }}-mix-test-docs-${{ env.OTP_VERSION }}-${{ env.ELIXIR_VERSION }}-
 
     - name: Install dependencies
       run: mix deps.get
